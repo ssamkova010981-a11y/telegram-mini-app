@@ -7,6 +7,10 @@
   <title>Выгодные продукты</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 20px;
@@ -16,44 +20,115 @@
     }
 
     h1 {
+      margin: 25px 0 10px;
       text-align: center;
-      font-size: 26px;
+      font-size: 28px;
     }
 
     .subtitle {
-      text-align: center;
       margin-bottom: 25px;
+      text-align: center;
+      font-size: 17px;
+      line-height: 1.4;
     }
 
     .card {
-      max-width: 400px;
+      max-width: 430px;
       margin: 0 auto;
-      padding: 20px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+      padding: 22px;
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.12);
     }
 
     .card h2 {
-      margin-top: 0;
+      margin: 0 0 15px;
+      font-size: 27px;
+      line-height: 1.15;
     }
 
     .benefit {
-      font-size: 24px;
+      margin: 12px 0;
+      color: #e91d2d;
+      font-size: 25px;
       font-weight: bold;
-      color: #e21b2d;
+    }
+
+    .short-text {
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    details {
+      margin-top: 18px;
+    }
+
+    summary {
+      padding: 15px;
+      color: #fff;
+      background: #e91d2d;
+      border-radius: 13px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .details-content {
+      padding-top: 20px;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .details-content h3 {
+      margin: 25px 0 10px;
+      font-size: 21px;
+    }
+
+    .item {
+      margin: 15px 0;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 15px;
+      background: #f6f6f6;
+      border-radius: 13px;
+    }
+
+    .final-text {
+      margin-top: 22px;
+      padding: 16px;
+      background: #fff2f3;
+      border-radius: 13px;
+      font-weight: bold;
     }
 
     .button {
       display: block;
-      margin-top: 20px;
+      margin-top: 14px;
       padding: 15px;
+      border-radius: 13px;
       text-align: center;
       text-decoration: none;
-      color: white;
-      background: #e21b2d;
-      border-radius: 12px;
+      font-size: 18px;
       font-weight: bold;
+    }
+
+    .primary-button {
+      color: #fff;
+      background: #e91d2d;
+    }
+
+    .secondary-button {
+      color: #e91d2d;
+      background: #fff;
+      border: 2px solid #e91d2d;
     }
   </style>
 </head>
@@ -63,21 +138,98 @@
   <h1>Выгодные продукты 🔥</h1>
 
   <p class="subtitle">
-    Выбирайте продукт и забирайте свою выгоду
+    Выбирай продукт и забирай свою выгоду
   </p>
 
   <div class="card">
-    <h2>Бизнес-карта Альфа-Банка</h2>
 
-    <p class="benefit">До 7 000 ₽ выгоды</p>
+    <h2>Бизнес-карта для самозанятых и ИП</h2>
 
-    <p>
-      Бесплатное оформление карты и доступ к акциям банка.
+    <p class="benefit">До 7 000 ₽ бонусами</p>
+
+    <p class="short-text">
+      10% кешбэка в пяти выбранных категориях и еженедельные акции с кешбэком до 100%.
     </p>
 
-    <a class="button" href="https://example.com">
-      Оформить
-    </a>
+    <details>
+      <summary>Подробнее</summary>
+
+      <div class="details-content">
+
+        <p>
+          Карту можно оформить, если ты уже ИП или самозанятый.
+          Если статуса ещё нет, можно зарегистрироваться перед оформлением.
+        </p>
+
+        <div class="item">
+          ✅ <strong>До 7 000 ₽ бонусами за первые действия</strong><br>
+          Например: пополнение карты — 1 000 ₽, первая покупка — 1 000 ₽,
+          открытие накопительного счёта — 500 ₽ и другие простые задания.
+        </div>
+
+        <p class="note">
+          Примерно <strong>3 500–4 000 ₽ получаем моментально</strong>.
+          Остальные бонусы начисляются в течение месяца после выполнения заданий.
+          После оформления я дам список заданий, чтобы получить максимум.
+        </p>
+
+        <div class="item">
+          ✅ <strong>10% кешбэка в пяти выбранных категориях</strong><br>
+          Лимит — до 15 000 ₽ кешбэка в месяц.
+        </div>
+
+        <div class="item">
+          ✅ <strong>Еженедельные акции с кешбэком до 100%</strong><br>
+          Бывают акции с полным возвратом расходов — например, на ЖКХ
+          или покупки у партнёров (3 000–5 000 ₽).
+        </div>
+
+        <div class="item">
+          ✅ <strong>Дополнительные бонусы для жизни и бизнеса</strong>
+        </div>
+
+        <div class="item">
+          ✅ <strong>Обслуживание</strong><br>
+          Первые 3 месяца — бесплатно, далее 249 ₽ в месяц.
+        </div>
+
+        <h3>Сколько занимает оформление</h3>
+
+        <p>
+          <strong>Если ИП уже есть:</strong><br>
+          заявка — около 10 минут, встреча с курьером — около 20 минут.
+          Курьер привезёт тебе карту.
+        </p>
+
+        <p>
+          <strong>Если ты самозанятый:</strong><br>
+          оформление может занять до трёх дней. Нужны две встречи с курьером:
+          первая — для регистрации специального режима
+          (без взносов, деклараций и отчётности),
+          вторая — для открытия счёта.
+        </p>
+
+        <p class="note">
+          За регистрацию через меня есть специальный бонус — <strong>2 000 ₽</strong>.
+        </p>
+
+        <div class="final-text">
+          В отдельных акциях мы получаем кешбэк 100%.
+          Такие условия не даёт ни один банк.<br><br>
+          Оформляй, пока действуют такие условия.
+        </div>
+
+        <a class="button primary-button" href="https://example.com">
+          Оформить карту
+        </a>
+
+        <a class="button secondary-button" href="https://t.me/example">
+          Задать вопрос
+        </a>
+
+      </div>
+    </details>
+
   </div>
 
 </body>
