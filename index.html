@@ -2,13 +2,20 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
 
   <title>Выгодные продукты</title>
 
   <style>
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -23,29 +30,39 @@
       margin: 25px 0 10px;
       text-align: center;
       font-size: 28px;
+      line-height: 1.2;
     }
 
     .subtitle {
-      margin-bottom: 25px;
+      margin: 0 0 28px;
       text-align: center;
       font-size: 17px;
       line-height: 1.4;
     }
 
-    .card {
-      max-width: 430px;
+    .catalog {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 460px;
       margin: 0 auto;
+    }
+
+    .card {
       padding: 22px;
       background: #fff;
       border-radius: 22px;
       box-shadow: 0 6px 22px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
     }
 
     .product-image {
       display: block;
       width: 100%;
       height: auto;
-      margin-bottom: 18px;
+      max-height: 360px;
+      margin: 0 auto 18px;
+      object-fit: contain;
       border-radius: 18px;
     }
 
@@ -60,9 +77,11 @@
       color: #e91d2d;
       font-size: 25px;
       font-weight: bold;
+      line-height: 1.25;
     }
 
     .short-text {
+      margin: 16px 0 0;
       font-size: 17px;
       line-height: 1.5;
     }
@@ -81,38 +100,40 @@
       font-weight: bold;
       cursor: pointer;
       list-style: none;
+      user-select: none;
     }
 
     summary::-webkit-details-marker {
       display: none;
     }
 
+    details[open] summary {
+      margin-bottom: 18px;
+    }
+
     .details-content {
-      padding-top: 20px;
       font-size: 16px;
       line-height: 1.55;
     }
 
     .details-content h3 {
-      margin: 25px 0 10px;
+      margin: 28px 0 12px;
       font-size: 21px;
+      line-height: 1.25;
+    }
+
+    .details-content p {
+      margin: 12px 0;
     }
 
     .item {
-      margin: 15px 0;
+      margin: 16px 0;
     }
 
     .note {
       margin-top: 18px;
       padding: 15px;
       background: #f6f6f6;
-      border-radius: 13px;
-    }
-
-    .choice-note {
-      margin-top: 22px;
-      padding: 16px;
-      background: #fff2f3;
       border-radius: 13px;
     }
 
@@ -126,6 +147,7 @@
 
     .button {
       display: block;
+      width: 100%;
       margin-top: 14px;
       padding: 15px;
       border-radius: 13px;
@@ -146,12 +168,29 @@
       border: 2px solid #e91d2d;
     }
 
-    .button-caption {
-      margin: 8px 4px 18px;
-      color: #555;
-      font-size: 14px;
-      line-height: 1.4;
-      text-align: center;
+    .small-warning {
+      margin-top: 16px;
+      font-size: 13px;
+      line-height: 1.45;
+      color: #666;
+    }
+
+    @media (max-width: 390px) {
+      body {
+        padding: 14px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .card h2 {
+        font-size: 24px;
+      }
+
+      .benefit {
+        font-size: 23px;
+      }
     }
   </style>
 </head>
@@ -164,127 +203,280 @@
     Выбирай продукт и забирай свою выгоду
   </p>
 
-  <div class="card">
+  <main class="catalog">
 
-    <img
-      class="product-image"
-      src="IMG_6897.webp"
-      alt="Бизнес-карта Альфа-Банка"
-    >
+    <!-- БИЗНЕС-КАРТА -->
+    <section class="card">
 
-    <h2>Бизнес-карта для самозанятых и ИП</h2>
+      <img
+        class="product-image"
+        src="IMG_6897.webp"
+        alt="Бизнес-карта Альфа-Банка"
+      >
 
-    <p class="benefit">До 7 000 ₽ бонусами</p>
+      <h2>Бизнес-карта для самозанятых и ИП</h2>
 
-    <p class="short-text">
-      10% кешбэка в пяти выбранных категориях и еженедельные акции с кешбэком до 100%.
-    </p>
+      <p class="benefit">До 7 000 ₽ бонусами</p>
 
-    <details>
-      <summary>Подробнее</summary>
+      <p class="short-text">
+        10% кешбэка в пяти выбранных категориях и еженедельные акции
+        с кешбэком до 100%.
+      </p>
 
-      <div class="details-content">
+      <details>
+        <summary>Подробнее</summary>
 
-        <p>
-          Карту можно оформить, если ты уже ИП или самозанятый.
-          Если статуса ещё нет, можно зарегистрироваться перед оформлением.
-        </p>
+        <div class="details-content">
 
-        <div class="item">
-          ✅ <strong>До 7 000 ₽ бонусами за первые действия</strong><br>
-          Например: пополнение карты — 1 000 ₽, первая покупка — 1 000 ₽,
-          открытие накопительного счёта — 500 ₽ и другие простые задания.
+          <p>
+            Карту можно оформить, если ты уже ИП или самозанятый.
+            Если подходящего статуса ещё нет, я подскажу, как всё сделать
+            бесплатно и получить дополнительный бонус.
+          </p>
+
+          <div class="item">
+            ✅ <strong>До 7 000 ₽ бонусами за первые действия</strong><br>
+            Например: пополнение карты — 1 000 ₽, первая покупка —
+            1 000 ₽, открытие накопительного счёта — 500 ₽ и другие
+            простые задания.
+          </div>
+
+          <p class="note">
+            Примерно <strong>3 500–4 000 ₽ получаем моментально</strong>.
+            Остальные бонусы начисляются в течение месяца после выполнения
+            заданий. После оформления я дам список заданий, чтобы получить
+            максимум.
+          </p>
+
+          <div class="item">
+            ✅ <strong>10% кешбэка в пяти выбранных категориях</strong><br>
+            Лимит — до 15 000 ₽ кешбэка в месяц.
+          </div>
+
+          <div class="item">
+            ✅ <strong>Еженедельные акции с кешбэком до 100%</strong><br>
+            Бывают акции с полным возвратом расходов — например, на ЖКХ
+            или покупки у партнёров: 3 000–5 000 ₽.
+          </div>
+
+          <div class="item">
+            ✅ <strong>Дополнительные бонусы для жизни и бизнеса</strong>
+          </div>
+
+          <div class="item">
+            ✅ <strong>Обслуживание</strong><br>
+            Первые 3 месяца — бесплатно, далее 249 ₽ в месяц.
+          </div>
+
+          <h3>Сколько занимает оформление</h3>
+
+          <p>
+            <strong>Если ИП уже есть:</strong><br>
+            заявка — около 10 минут, встреча с курьером — около 20 минут.
+            Курьер привезёт тебе карту.
+          </p>
+
+          <p>
+            <strong>Если ты самозанятый:</strong><br>
+            оформление может занять до трёх дней. Нужны две встречи:
+            первая — для регистрации специального режима без взносов,
+            деклараций и отчётности, вторая — для открытия счёта.
+          </p>
+
+          <p class="note">
+            За регистрацию через меня есть специальный бонус —
+            <strong>2 000 ₽</strong>.
+          </p>
+
+          <div class="final-text">
+            В отдельных акциях мы получаем кешбэк 100%.
+            Такие условия не даёт ни один банк.<br><br>
+            Оформляй, пока действуют такие условия.
+          </div>
+
+          <a
+            class="button primary-button"
+            href="https://alfabank.ru/sme/partner/ag/?platformId=alfapartners_msv_rko-anketa_473518_3469333&utm_source=alfapartners&utm_medium=msv&utm_term=rko-anketa&utm_campaign=473518&utm_content=alfapartners_msv_rko-anketa_473518_3469333"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Заказать бизнес-карту
+          </a>
+
+          <a
+            class="button secondary-button"
+            href="https://t.me/SvetlanaPetrova_Ufa"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Для всех остальных — написать мне
+          </a>
+
         </div>
+      </details>
 
-        <p class="note">
-          Примерно <strong>3 500–4 000 ₽ получаем моментально</strong>.
-          Остальные бонусы начисляются в течение месяца после выполнения заданий.
-          После оформления я дам список заданий, чтобы получить максимум.
-        </p>
+    </section>
 
-        <div class="item">
-          ✅ <strong>10% кешбэка в пяти выбранных категориях</strong><br>
-          Лимит — до 15 000 ₽ кешбэка в месяц.
+
+    <!-- КРЕДИТНАЯ КАРТА -->
+    <section class="card">
+
+      <img
+        class="product-image"
+        src="IMG_7042.png"
+        alt="Кредитная карта Альфа-Банка"
+      >
+
+      <h2>Кредитная карта Альфа-Банка</h2>
+
+      <p class="benefit">Бесплатная навсегда</p>
+
+      <p class="short-text">
+        Снимай наличные без комиссии, не плати за них проценты до 100 дней
+        и получай кешбэк рублями.
+      </p>
+
+      <details>
+        <summary>Подробнее</summary>
+
+        <div class="details-content">
+
+          <p>
+            Кредитные карты есть почти у всех. Но далеко не каждая позволяет
+            снимать наличные без комиссии и не платить проценты за эти деньги
+            до 100 дней. А ещё получать кешбэк рублями.
+          </p>
+
+          <p>
+            У Альфа-Банка можно оформить несколько кредитных карт на одного
+            человека. Поэтому даже если кредитка Альфа-Банка у тебя уже есть,
+            можно оформить ещё одну и получить преимущества, участие
+            в розыгрыше и бонус от меня.
+          </p>
+
+          <h3>Что ты получаешь</h3>
+
+          <div class="item">
+            ✅ <strong>Бесплатное обслуживание навсегда</strong>
+          </div>
+
+          <div class="item">
+            ✅ <strong>До 100 дней без процентов</strong><br>
+            Льготный период действует на покупки и снятие наличных.
+          </div>
+
+          <div class="item">
+            ✅ <strong>Снятие наличных без комиссии</strong><br>
+            Можно снимать до 50 000 ₽ в месяц. И самое важное — на снятую
+            сумму тоже действует льготный период.
+          </div>
+
+          <p class="note">
+            Обычно банки не только берут комиссию за снятие, но и сразу
+            начисляют проценты. Здесь деньги можно использовать без
+            переплаты и даже временно разместить на вкладе.
+          </p>
+
+          <div class="item">
+            ✅ <strong>Кешбэк рублями до 100%</strong><br>
+            По стандартным категориям можно вернуть до 60 000 ₽ в год.
+            Если не пропускать акции и специальные предложения, выгода
+            будет значительно выше.
+          </div>
+
+          <p>
+            Я подсказываю, какие предложения действительно выгодны,
+            где искать повышенный кешбэк и как использовать карту так,
+            чтобы она приносила пользу, а не превращалась в дорогой долг.
+          </p>
+
+          <h3>
+            Закрыть кредитку другого банка и 100 дней не платить проценты
+          </h3>
+
+          <p>
+            Допустим, по кредитке другого банка заканчивается льготный
+            период, а полностью закрыть долг сейчас нечем.
+          </p>
+
+          <p>
+            Можно оформить кредитку Альфа-Банка, погасить задолженность
+            по карте другого банка и получить до 100 дней, чтобы спокойно
+            вернуть деньги без процентов.
+          </p>
+
+          <p class="note">
+            По сути, ты освобождаешь себя от процентов ещё на несколько
+            месяцев и получаешь время спокойно закрыть долг.
+          </p>
+
+          <h3>Бонус от меня — 1 000 ₽</h3>
+
+          <p>
+            После оформления карты и покупки на сумму от 1 000 ₽
+            я возмещу эту покупку за свой счёт.
+          </p>
+
+          <p>
+            То есть товар стоимостью 1 000 ₽ ты фактически получаешь
+            в подарок.
+          </p>
+
+          <h3>Розыгрыш в закрытом клубе</h3>
+
+          <p>
+            После оформления карты ты попадаешь в мой закрытый клуб,
+            где проходят розыгрыши, публикуются выгодные акции
+            и дополнительные предложения.
+          </p>
+
+          <h3>Почему эта карта отличается</h3>
+
+          <p>
+            Обычная кредитка — это просто деньги в долг с льготным периодом.
+          </p>
+
+          <p>
+            Карта Альфа-Банка может заменить дорогую кредитку другого банка
+            и дать до 100 дней без процентов, позволяет снимать наличные
+            без комиссии, временно размещать деньги на вкладе и возвращать
+            часть расходов рублями.
+          </p>
+
+          <div class="final-text">
+            Оформляй карту по моей ссылке — и первую покупку на 1 000 ₽
+            я верну тебе деньгами.
+          </div>
+
+          <a
+            class="button primary-button"
+            href="https://alfabank.ru/get-money/credit-cards/land/60-days-partners/?platformId=alfapartners_msv_CC-60_473518_3469224&utm_source=alfapartners&utm_medium=msv&utm_term=CC-60&utm_campaign=473518&utm_content=alfapartners_msv_CC-60_473518_3469224"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Оформить лучшую карту
+          </a>
+
+          <a
+            class="button secondary-button"
+            href="https://t.me/SvetlanaPetrova_Ufa"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Задать мне вопрос
+          </a>
+
+          <p class="small-warning">
+            Перед оформлением проверь актуальные тарифы, лимиты,
+            льготный период и условия начисления кешбэка на странице банка.
+          </p>
+
         </div>
+      </details>
 
-        <div class="item">
-          ✅ <strong>Еженедельные акции с кешбэком до 100%</strong><br>
-          Бывают акции с полным возвратом расходов — например, на ЖКХ
-          или покупки у партнёров (3 000–5 000 ₽).
-        </div>
+    </section>
 
-        <div class="item">
-          ✅ <strong>Дополнительные бонусы для жизни и бизнеса</strong>
-        </div>
-
-        <div class="item">
-          ✅ <strong>Обслуживание</strong><br>
-          Первые 3 месяца — бесплатно, далее 249 ₽ в месяц.
-        </div>
-
-        <h3>Сколько занимает оформление</h3>
-
-        <p>
-          <strong>Если ИП уже есть:</strong><br>
-          заявка — около 10 минут, встреча с курьером — около 20 минут.
-          Курьер привезёт тебе карту.
-        </p>
-
-        <p>
-          <strong>Если ты самозанятый:</strong><br>
-          оформление может занять до трёх дней. Нужны две встречи с курьером:
-          первая — для регистрации специального режима
-          (без взносов, деклараций и отчётности),
-          вторая — для открытия счёта.
-        </p>
-
-        <p class="note">
-          За регистрацию через меня есть дополнительная денежная выплата.
-        </p>
-
-        <div class="final-text">
-          В отдельных акциях мы получаем кешбэк 100%.
-          Такие условия не даёт ни один банк.<br><br>
-          Оформляй, пока действуют такие условия.
-        </div>
-
-        <div class="choice-note">
-          <strong>Выбери свой вариант:</strong><br>
-          если у тебя уже есть ИП — переходи к оформлению карты.
-          Во всех остальных случаях напиши мне:
-          подскажу, как сделать всё бесплатно и получить дополнительную денежную выплату.
-        </div>
-
-        <a
-          class="button primary-button"
-          href="https://alfabank.ru/sme/partner/ag/?platformId=alfapartners_msv_rko-anketa_473518_3469333&utm_source=alfapartners&utm_medium=msv&utm_term=rko-anketa&utm_campaign=473518&utm_content=alfapartners_msv_rko-anketa_473518_3469333"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          У меня уже есть ИП — заказать карту
-        </a>
-
-        <p class="button-caption">
-          Переход к оформлению бизнес-карты
-        </p>
-
-        <a
-          class="button secondary-button"
-          href="https://t.me/SvetlanaPetrova_Ufa"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Для всех остальных — написать мне
-        </a>
-
-        <p class="button-caption">
-          Подскажу, как сделать всё бесплатно и получить дополнительную денежную выплату
-        </p>
-
-      </div>
-    </details>
-
-  </div>
+  </main>
 
 </body>
 </html>
